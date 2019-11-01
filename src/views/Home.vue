@@ -2,7 +2,7 @@
   <div class="home">
     <div class="news-container">
       <ul class="news-list">
-        <Card v-for="newData in newsData" :key="newData.date" :newData="newData" />
+        <Card v-for="newData in newArr" :key="newData.date" :newData="newData" />
       </ul>
     </div>
   </div>
@@ -19,12 +19,26 @@ export default {
       newsData: []
     };
   },
-
+  computed: {
+    newArr() {
+      return this.sort(this.newsData);
+    }
+  },
   components: { Card },
   methods: {
     async getNews() {
       const { data } = await API.get("noticias.json");
-      this.newsData = [...data];
+      let dataMap = data.map(news => {
+        return { ...news, click: 0 };
+      });
+      this.newsData = [...dataMap];
+    },
+    sort(arr) {
+      return arr.sort((a, b) => {
+        if (a.date > b.date) return -1;
+        if (a.date < b.date) return 1;
+        return 0;
+      });
     }
   },
   created() {
