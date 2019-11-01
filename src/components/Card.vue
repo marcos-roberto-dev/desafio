@@ -1,11 +1,15 @@
 <template>
   <li class="news-item">
-    <router-link :to="`/${newData.date}`" class="news-title">{{newData.title}}</router-link>
+    <router-link
+      :to="{name: 'news', params: {filter: newData.date}}"
+      class="news-title"
+    >{{newData.title}}</router-link>
     <p class="news-date">{{ date}}</p>
     <p class="news-content">{{content}}...</p>
     <a :href="newData.source" class="news-source">{{newData.source}}</a>
     <div class="box-container">
       <p>{{newData.comments}}</p>
+      <p>{{newData.click}}</p>
     </div>
   </li>
 </template>
@@ -58,6 +62,13 @@ export default {
 
 .box-container {
   margin-top: 10px;
+  display: flex;
+
+  p {
+    & + p {
+      margin-left: 10px;
+    }
+  }
 }
 
 @media screen and(max-width: 860px) {
