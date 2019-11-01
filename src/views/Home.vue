@@ -2,21 +2,16 @@
   <div class="home">
     <div class="news-container">
       <ul class="news-list">
-        <li class="news-item" v-for="newData in newsData" :key="newData.date">
-          <router-link :to="`/${newData.date}`" class="news-title">{{newData.title}}</router-link>
-          <p class="news-date">{{new Date(newData.date).toLocaleDateString("pt-BR")}}</p>
-          <p class="news-content">{{newData.content.substring(newData.content.indexOf("."), 1 )}}</p>
-          <a :href="newData.source" class="news-source">{{newData.source}}</a>
-          <div class="box-container">
-            <p>{{newData.comments}}</p>
-          </div>
-        </li>
+        <Card v-for="newData in newsData" :key="newData.date" :newData="newData" />
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import { API } from "@/services/api";
+import Card from "@/components/Card";
+
 export default {
   name: "home",
   data() {
@@ -25,20 +20,25 @@ export default {
     };
   },
 
-  components: {},
-  methods: {},
+  components: { Card },
+  methods: {
+    async getNews() {
+      const { data } = await API.get("noticias.json");
+      this.newsData = [...data];
+    }
+  },
   created() {
-    fetch("http://10.50.42.145:8080/noticias.json")
-      .then(r => r.json())
-      .then(r => {
-        this.newsData = r;
-        console.log(r);
-      });
+    this.getNews();
   }
 };
 </script>
 
 <style scoped lang="scss">
+.home {
+  flex: 1;
+  padding: 20px;
+}
+
 .news-list {
   max-width: 960px;
   width: 100%;
@@ -48,32 +48,6 @@ export default {
   gap: 20px;
   margin-top: 60px;
   list-style: none;
-}
-
-.news-item {
-  border: 1px solid black;
-  padding: 20px;
-}
-
-.news-title {
-  font-size: 20px;
-}
-
-.news-date {
-  margin: 10px 0;
-}
-
-.news-content {
-  margin-bottom: 10px;
-}
-
-.news-source {
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-
-.box-container {
-  margin-top: 10px;
 }
 
 .news-item {

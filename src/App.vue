@@ -23,6 +23,9 @@
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #nav {
@@ -31,7 +34,9 @@
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #fff;
+    text-decoration: none;
+    font-size: 38px;
 
     &.router-link-exact-active {
     }
@@ -50,5 +55,7 @@ footer {
   text-align: center;
   line-height: 5;
   height: 80px;
+  color: #fff;
+  font-size: 18px;
 }
 </style>
