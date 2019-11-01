@@ -4,19 +4,18 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-import Noticias from "../views/Noticias"
+import NewsInFull from "../views/NewsInFull"
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: Home,
-    props: true
   },
   {
-    path: '/:noticias',
-    name: 'noticias',
-    component: Noticias,
+    path: "/:filter",
+    name: "news",
+    component: NewsInFull,
     props: true
   }
 ]
