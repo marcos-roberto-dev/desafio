@@ -1,17 +1,24 @@
 <template>
-  <li class="news-item">
-    <router-link
-      :to="{name: 'news', params: {filter: newData.date, newData}}"
-      class="news-title"
-    >{{newData.title}}</router-link>
+  <router-link
+    :to="{name: 'news', params: {filter: newData.date, newData}}"
+    tag="a"
+    class="news-item"
+  >
+    <h1 class="news-title">{{newData.title}}</h1>
     <p class="news-date">{{ date}}</p>
     <p class="news-content">{{content}}...</p>
     <a :href="newData.source" class="news-source">{{newData.source}}</a>
     <div class="box-container">
-      <p>{{newData.comments}}</p>
-      <p>{{newData.click}}</p>
+      <div class="news-comment-container">
+        <i class="icon lni-comment"></i>
+        <p>{{newData.comments}}</p>
+      </div>
+      <div class="news-click-container">
+        <i class="icon lni-bolt"></i>
+        <p>{{newData.click}}</p>
+      </div>
     </div>
-  </li>
+  </router-link>
 </template>
 
 <script>
@@ -33,12 +40,15 @@ export default {
 
 <style lang="scss" scoped>
 .news-item {
-  border: 1px solid black;
+  box-shadow: 0 0 3px 1px rgba($color: #000000, $alpha: 0.2);
   padding: 20px;
+  color: #2c3e50;
+  text-decoration: none;
 }
 
 .news-title {
   font-size: 20px;
+  font-weight: 800;
 }
 
 .news-date {
@@ -52,6 +62,21 @@ export default {
 .news-source {
   text-decoration: none;
   margin-bottom: 10px;
+}
+
+.news-comment-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.news-click-container {
+  display: flex;
+  align-items: center;
 }
 
 .box-container {
@@ -71,7 +96,7 @@ export default {
   }
 }
 
-@media screen and(max-width: 540px) {
+@media screen and(max-width: 680px) {
   .news-item:nth-last-child(1) {
     grid-column: span 1;
   }

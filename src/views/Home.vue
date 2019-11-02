@@ -43,16 +43,16 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-top: 60px;
+  margin: 30px 0;
   list-style: none;
 }
 
-@media screen and(max-width: 860px) {
+@media screen and(max-width: 960px) {
   .news-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and(max-width: 540px) {
+@media screen and(max-width: 700px) {
   .news-list {
     grid-template-columns: 1fr;
   }

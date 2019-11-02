@@ -32,7 +32,7 @@ export default {
 }
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Merriweather", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -40,6 +40,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: rgba(0, 0, 0, 0.02);
 }
 
 #nav {
@@ -58,13 +59,12 @@ export default {
 }
 
 nav {
-  max-width: 960px;
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
 }
 
 footer {
-  margin-top: 60px;
   background: #42b983;
   text-align: center;
   line-height: 5;
@@ -74,7 +74,7 @@ footer {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
 }
