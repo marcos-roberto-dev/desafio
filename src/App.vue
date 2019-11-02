@@ -3,6 +3,7 @@
     <div id="nav">
       <nav>
         <router-link to="/">FakeVue</router-link>
+        <router-link class="link" to="/">Noticias</router-link>
       </nav>
     </div>
 
@@ -46,15 +47,21 @@ export default {
 #nav {
   padding: 20px;
   background: #42b983;
+  width: 100%;
+
+  .link {
+    font-size: 18px;
+    text-transform: uppercase;
+    &.router-link-exact-active {
+      color: #2c3e50;
+    }
+  }
 
   a {
     font-weight: bold;
     color: #fff;
     text-decoration: none;
     font-size: 38px;
-
-    &.router-link-exact-active {
-    }
   }
 }
 
@@ -62,6 +69,9 @@ nav {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 footer {
