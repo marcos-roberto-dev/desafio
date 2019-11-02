@@ -10,6 +10,19 @@
   </div>
 </template>
 
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  methods: {
+    ...mapActions(["fetchDataNews"])
+  },
+  created() {
+    this.fetchDataNews("/noticias.json");
+  }
+};
+</script>
+
 <style lang="scss">
 * {
   margin: 0;
