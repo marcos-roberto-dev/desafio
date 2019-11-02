@@ -5,6 +5,7 @@
         <router-link to="/">FakeNews</router-link>
       </nav>
     </div>
+
     <router-view />
     <footer>Todos os direitos</footer>
   </div>

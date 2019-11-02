@@ -3,16 +3,26 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "NewsInFull",
-  props: ["filter", "newData"],
+  props: ["filter"],
   methods: {
-    ...mapActions(["addClick"])
+    ...mapActions(["addClick"]),
+    getFilterDate(date) {
+      return this.newsData.find(item => item.date === +date);
+    }
+  },
+  computed: {
+    ...mapState(["newsData"]),
+    newData() {
+      return this.getFilterDate(this.filter);
+    }
   },
   created() {
-    this.addClick(this.newData.date);
+    if (this.newData) this.addClick(this.newData.date);
+    else;
   }
 };
 </script>

@@ -29,8 +29,7 @@ export default {
         return 0;
       });
     }
-  },
-  created() {}
+  }
 };
 </script>
 

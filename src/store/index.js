@@ -25,17 +25,18 @@ export const store = new Vuex.Store({
   },
   actions: {
     fetchDataNews(context, url) {
-
       const clickData = JSON.parse(localStorage.getItem("click"))
-
-
       if (!clickData) {
-        API.get(url).then(({ data }) => {
-          const News = data.map(item => {
-            return { ...item, click: 0 };
+        try {
+          API.get(url).then(({ data }) => {
+            const News = data.map(item => {
+              return { ...item, click: 0 };
+            })
+            context.commit("GET_DATA_NEWS", News)
           })
-          context.commit("GET_DATA_NEWS", News)
-        })
+        } catch (error) {
+          console.log(error)
+        }
       }
       else {
         context.commit("GET_DATA_NEWS", clickData)
