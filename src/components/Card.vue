@@ -1,7 +1,7 @@
 <template>
   <li class="news-item">
     <router-link
-      :to="{name: 'news', params: {filter: newData.date}}"
+      :to="{name: 'news', params: {filter: newData.date, newData}}"
       class="news-title"
     >{{newData.title}}</router-link>
     <p class="news-date">{{ date}}</p>

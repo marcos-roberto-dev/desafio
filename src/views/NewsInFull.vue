@@ -1,27 +1,18 @@
 <template>
-  <h1>{{fetchData}}</h1>
+  <h1>{{newData}}</h1>
 </template>
 
 <script>
-import { API } from "@/services/api";
+import { mapActions } from "vuex";
 
 export default {
   name: "NewsInFull",
-  data() {
-    return {
-      fetchData: {}
-    };
-  },
-  props: ["filter"],
+  props: ["filter", "newData"],
   methods: {
-    async newsInFull() {
-      const { data } = await API.get("/noticias.json");
-      const select = data.find(news => news.date === this.filter);
-      this.fetchData = { ...select };
-    }
+    ...mapActions(["addClick"])
   },
   created() {
-    this.newsInFull();
+    this.addClick(this.newData.date);
   }
 };
 </script>

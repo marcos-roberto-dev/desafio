@@ -9,30 +9,19 @@
 </template>
 
 <script>
-import { API } from "@/services/api";
 import Card from "@/components/Card";
+import { mapState } from "vuex";
 
 export default {
   name: "home",
-  data() {
-    return {
-      newsData: []
-    };
-  },
   computed: {
+    ...mapState(["newsData"]),
     newArr() {
       return this.sort(this.newsData);
     }
   },
   components: { Card },
   methods: {
-    async getNews() {
-      const { data } = await API.get("noticias.json");
-      let dataMap = data.map(news => {
-        return { ...news, click: 0 };
-      });
-      this.newsData = [...dataMap];
-    },
     sort(arr) {
       return arr.sort((a, b) => {
         if (a.date > b.date) return -1;
@@ -41,9 +30,7 @@ export default {
       });
     }
   },
-  created() {
-    this.getNews();
-  }
+  created() {}
 };
 </script>
 
