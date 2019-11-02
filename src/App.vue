@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <nav>
-        <router-link to="/">FakeNews</router-link>
+        <router-link to="/">FakeVue</router-link>
       </nav>
     </div>
 
