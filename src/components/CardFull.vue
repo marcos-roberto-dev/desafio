@@ -31,9 +31,6 @@ export default {
     date() {
       return this.toLocaleDate(this.data.date);
     }
-  },
-  created() {
-    console.log("CARD FULL: ", this.data);
   }
 };
 </script>
