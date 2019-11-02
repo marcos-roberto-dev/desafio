@@ -40,17 +40,11 @@ export default {
 }
 
 .news-list {
-  max-width: 960px;
-  width: 100%;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 60px;
   list-style: none;
-}
-
-.news-item {
 }
 
 @media screen and(max-width: 860px) {

@@ -15,8 +15,10 @@
 </template>
 
 <script>
+import { dateText } from "@/components/help/mixinDateText";
 export default {
   name: "Card",
+  mixins: [dateText],
   props: ["newData"],
   computed: {
     date() {
@@ -24,14 +26,6 @@ export default {
     },
     content() {
       return this.simpleText(this.newData.content);
-    }
-  },
-  methods: {
-    toLocaleDate(text) {
-      return new Date(text).toLocaleDateString("pt-BR");
-    },
-    simpleText(text) {
-      return text.substring(text.indexOf("."), 1);
     }
   }
 };

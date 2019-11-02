@@ -6,7 +6,7 @@
       </nav>
     </div>
 
-    <router-view />
+    <router-view class="container" />
     <footer>Todos os direitos</footer>
   </div>
 </template>
@@ -71,5 +71,11 @@ footer {
   height: 80px;
   color: #fff;
   font-size: 18px;
+}
+
+.container {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
 }
 </style>
