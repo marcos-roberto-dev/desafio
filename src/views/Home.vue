@@ -37,6 +37,7 @@ export default {
 .home {
   flex: 1;
   padding: 20px;
+  display: flex;
 }
 
 .news-list {

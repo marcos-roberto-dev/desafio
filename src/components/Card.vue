@@ -90,7 +90,7 @@ export default {
   }
 }
 
-@media screen and(max-width: 860px) {
+@media screen and(max-width: 960px) {
   .news-item:nth-last-child(1) {
     grid-column: span 2;
   }
